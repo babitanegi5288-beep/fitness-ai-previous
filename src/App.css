@@ -1,0 +1,3466 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #06151f;
+  --bg-soft: #0a202c;
+  --card: #0c2532;
+  --card-light: #123544;
+  --primary: #36c5d8;
+  --primary-dark: #1c879a;
+  --text: #f4fbfc;
+  --text-soft: #a9c2c9;
+  --border: rgba(255, 255, 255, 0.1);
+  --shadow: rgba(0, 0, 0, 0.35);
+}
+
+body {
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: var(--bg);
+  color: var(--text);
+
+  min-width: 320px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 80% 15%,
+      rgba(39, 151, 170, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 10% 70%,
+      rgba(22, 101, 119, 0.12),
+      transparent 30%
+    ),
+    var(--bg);
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar {
+  width: 100%;
+  height: 78px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 7%;
+
+  border-bottom: 1px solid var(--border);
+
+  background: rgba(6, 21, 31, 0.78);
+
+  backdrop-filter: blur(14px);
+
+  position: relative;
+  z-index: 20;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 190px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 0 8px rgba(54, 197, 216, 0.35));
+}
+.top-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+  border: none;
+  border-radius: 10px;
+
+  padding: 11px 20px;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn.primary {
+  color: #04141b;
+
+  background:
+    linear-gradient(
+      135deg,
+      #65e4ed,
+      #2bb6cc
+    );
+
+  box-shadow:
+    0 8px 25px rgba(44, 190, 207, 0.2);
+}
+
+.btn.primary:hover {
+  box-shadow:
+    0 12px 30px rgba(44, 190, 207, 0.35);
+}
+
+.btn.secondary {
+  color: var(--text);
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid var(--border);
+}
+
+.btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn.large {
+  padding: 15px 26px;
+  font-size: 15px;
+}
+
+.arrow {
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  width: 86%;
+  max-width: 1400px;
+
+  min-height: 650px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 70px;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 650px;
+}
+
+.eyebrow {
+  color: var(--primary);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 6vw, 82px);
+
+  line-height: 0.98;
+
+  letter-spacing: -3px;
+
+  margin-bottom: 28px;
+}
+
+.hero h1 span {
+  color: var(--primary);
+}
+
+.hero-text {
+  max-width: 570px;
+
+  color: var(--text-soft);
+
+  font-size: 17px;
+  line-height: 1.7;
+
+  margin-bottom: 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.hero-visual {
+  width: 520px;
+  height: 520px;
+
+  flex-shrink: 0;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-glow {
+  position: absolute;
+
+  width: 330px;
+  height: 330px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(53, 207, 224, 0.35),
+      rgba(24, 112, 130, 0.08),
+      transparent 70%
+    );
+
+  filter: blur(20px);
+}
+
+.visual-ring {
+  position: absolute;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(65, 207, 221, 0.25);
+}
+
+.ring-one {
+  width: 430px;
+  height: 430px;
+}
+
+.ring-two {
+  width: 500px;
+  height: 220px;
+
+  transform: rotate(-28deg);
+}
+
+/* =========================================================
+   AI CORE
+========================================================= */
+
+.ai-core {
+  width: 245px;
+  height: 245px;
+
+  border-radius: 50%;
+
+  padding: 9px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #4ed8e3,
+      #113b4b,
+      #061a25
+    );
+
+  box-shadow:
+    0 0 70px rgba(44, 197, 216, 0.28),
+    0 25px 70px rgba(0, 0, 0, 0.4);
+
+  position: relative;
+  z-index: 5;
+}
+
+.ai-core-inner {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 45% 35%,
+      #1b5264,
+      #071c28 70%
+    );
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.ai-core-inner span {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.ai-core-inner strong {
+  font-size: 23px;
+  letter-spacing: 3px;
+}
+
+.ai-core-inner small {
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+/* =========================================================
+   HERO FEATURE LABELS
+========================================================= */
+
+.visual-label {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 9px 13px;
+
+  border-radius: 30px;
+
+  background: rgba(9, 31, 42, 0.85);
+
+  border: 1px solid rgba(105, 220, 232, 0.2);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(10px);
+
+  color: #dff8fa;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  z-index: 8;
+}
+
+.label-icon {
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(55, 199, 215, 0.13);
+
+  font-size: 15px;
+}
+
+.training-label {
+  top: 65px;
+  left: 20px;
+}
+
+.nutrition-label {
+  top: 145px;
+  right: 0;
+}
+
+.learning-label {
+  right: -5px;
+  bottom: 145px;
+}
+
+.scanner-label {
+  bottom: 55px;
+  left: 25px;
+}
+
+.coach-label {
+  left: 5px;
+  bottom: 170px;
+}
+
+/* =========================================================
+   SPORTS BALLS
+========================================================= */
+
+.sport-ball {
+  position: absolute;
+
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(12, 43, 56, 0.9);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.3);
+
+  font-size: 25px;
+
+  z-index: 6;
+}
+
+.ball-one {
+  top: 20px;
+  right: 100px;
+}
+
+.ball-two {
+  bottom: 30px;
+  right: 70px;
+}
+
+.ball-three {
+  top: 235px;
+  left: -10px;
+}
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features-section {
+  width: 86%;
+  max-width: 1250px;
+
+  margin: 30px auto 90px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-heading.left {
+  text-align: left;
+}
+
+.section-heading h2 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.section-heading > p:last-child {
+  color: var(--text-soft);
+}
+
+.feature-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.feature-card {
+  padding: 28px;
+
+  min-height: 190px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 53, 67, 0.95),
+      rgba(8, 29, 40, 0.95)
+    );
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+
+  border-color:
+    rgba(65, 210, 225, 0.35);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background:
+    rgba(52, 198, 216, 0.12);
+
+  font-size: 23px;
+
+  margin-bottom: 18px;
+}
+
+.feature-card h3 {
+  font-size: 19px;
+  margin-bottom: 9px;
+}
+
+.feature-card p {
+  color: var(--text-soft);
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  text-align: center;
+
+  padding: 30px;
+
+  border-top: 1px solid var(--border);
+
+  color: #718c94;
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   AUTH PAGE
+========================================================= */
+
+.auth-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+
+  position: relative;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(43, 180, 200, 0.16),
+      transparent 35%
+    ),
+    var(--bg);
+}
+
+.auth-background-glow {
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(43, 190, 210, 0.08);
+
+  filter: blur(80px);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 510px;
+
+  padding: 38px;
+
+  border-radius: 24px;
+
+  background:
+    rgba(10, 34, 46, 0.94);
+
+  border: 1px solid var(--border);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.4);
+
+  position: relative;
+  z-index: 2;
+}
+
+.back-button {
+  border: none;
+  background: transparent;
+
+  color: var(--text-soft);
+
+  margin-bottom: 28px;
+}
+
+.auth-logo {
+  color: var(--primary);
+
+  margin-bottom: 35px;
+}
+
+.auth-heading h1 {
+  font-size: 38px;
+  margin-bottom: 8px;
+}
+
+.auth-heading > p:last-child {
+  color: var(--text-soft);
+  margin-bottom: 25px;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-card label,
+.settings-card label {
+  font-size: 13px;
+
+  color: #c8d9dd;
+
+  margin-bottom: 8px;
+
+  font-weight: 700;
+}
+
+.auth-card input,
+.auth-card select,
+.settings-card input,
+.settings-card select,
+.coach-input input {
+  width: 100%;
+
+  padding: 13px 15px;
+
+  border-radius: 10px;
+
+  border: 1px solid var(--border);
+
+  background: rgba(255, 255, 255, 0.05);
+
+  color: white;
+
+  outline: none;
+
+  margin-bottom: 18px;
+}
+
+.auth-card input:focus,
+.auth-card select:focus,
+.settings-card input:focus,
+.settings-card select:focus,
+.coach-input input:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(54, 197, 216, 0.1);
+}
+
+.auth-card select option,
+.settings-card select option {
+  background: #0b2531;
+  color: white;
+}
+
+.auth-submit {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.auth-switch {
+  text-align: center;
+
+  color: var(--text-soft);
+
+  margin-top: 25px;
+
+  font-size: 14px;
+}
+
+.auth-switch button {
+  background: transparent;
+  border: none;
+
+  color: var(--primary);
+
+  font-weight: 800;
+}
+
+.choice-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 9px;
+
+  margin-bottom: 20px;
+}
+
+.choice {
+  padding: 11px 8px;
+
+  border-radius: 9px;
+
+  border: 1px solid var(--border);
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: var(--text-soft);
+
+  font-size: 12px;
+}
+
+.choice.active {
+  background:
+    rgba(54, 197, 216, 0.16);
+
+  border-color: var(--primary);
+
+  color: white;
+}
+
+.auth-navigation {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 5px;
+}
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.dashboard-layout {
+  min-height: 100vh;
+
+  display: flex;
+
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(44, 157, 176, 0.1),
+      transparent 25%
+    ),
+    var(--bg);
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+  width: 260px;
+
+  min-height: 100vh;
+
+  padding: 28px 18px;
+
+  border-right: 1px solid var(--border);
+
+  background:
+    rgba(5, 23, 32, 0.92);
+
+  display: flex;
+  flex-direction: column;
+
+  position: sticky;
+  top: 0;
+}
+
+.sidebar-logo {
+  padding: 0 12px 28px;
+
+  color: white;
+}
+
+.sidebar-logo:first-letter {
+  color: var(--primary);
+}
+
+.user-mini-card {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 13px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  margin-bottom: 25px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      #17798b
+    );
+
+  color: #04141b;
+
+  font-weight: 900;
+}
+
+.user-mini-card strong {
+  display: block;
+  font-size: 13px;
+}
+
+.user-mini-card span {
+  display: block;
+
+  color: var(--text-soft);
+
+  font-size: 11px;
+
+  margin-top: 3px;
+}
+
+.sidebar-nav {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.nav-item {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #9fb5bb;
+
+  text-align: left;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  transition: 0.2s ease;
+}
+
+.nav-item span {
+  width: 22px;
+  text-align: center;
+}
+
+.nav-item:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-item.active {
+  color: white;
+
+  background:
+    rgba(54, 197, 216, 0.13);
+
+  border: 1px solid rgba(54, 197, 216, 0.15);
+}
+
+.logout-button {
+  margin-top: auto;
+
+  padding: 12px 14px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #a9bdc2;
+
+  text-align: left;
+}
+
+.logout-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================================
+   DASHBOARD MAIN
+========================================================= */
+
+.dashboard-main {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.dashboard-header {
+  min-height: 95px;
+
+  padding: 22px 5%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.dashboard-header h1 {
+  font-size: 27px;
+}
+
+.header-profile {
+  color: var(--text-soft);
+
+  font-size: 13px;
+}
+
+.dashboard-content {
+  width: 90%;
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  padding: 40px 0 80px;
+}
+
+.mobile-menu-button {
+  display: none;
+}
+
+/* =========================================================
+   WELCOME BANNER
+========================================================= */
+
+.welcome-banner {
+  padding: 35px;
+
+  border-radius: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background:
+    linear-gradient(
+      135deg,
+      #123c4c,
+      #092530
+    );
+
+  border: 1px solid var(--border);
+
+  margin-bottom: 25px;
+}
+
+.welcome-banner h2 {
+  font-size: 31px;
+  margin-bottom: 10px;
+}
+
+.welcome-banner p:last-child {
+  color: var(--text-soft);
+}
+
+.welcome-icon {
+  width: 90px;
+  height: 90px;
+
+  border-radius: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 42px;
+
+  background:
+    rgba(55, 202, 219, 0.12);
+
+  border: 1px solid rgba(55, 202, 219, 0.2);
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.dashboard-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 15px;
+
+  margin-bottom: 50px;
+}
+
+.stat-card {
+  padding: 20px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(13, 40, 51, 0.9);
+
+  border: 1px solid var(--border);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+.stat-icon {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(54, 197, 216, 0.1);
+}
+
+.stat-card span {
+  display: block;
+
+  color: #829da5;
+
+  font-size: 11px;
+
+  margin-bottom: 4px;
+}
+
+.stat-card strong {
+  font-size: 14px;
+}
+
+/* =========================================================
+   QUICK ACTIONS
+========================================================= */
+
+.quick-section {
+  margin-top: 20px;
+}
+
+.quick-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 15px;
+}
+
+.quick-action {
+  width: 100%;
+
+  padding: 22px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 17px;
+
+  background:
+    rgba(12, 37, 48, 0.85);
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  text-align: left;
+
+  transition: 0.2s ease;
+}
+
+.quick-action:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(54, 197, 216, 0.3);
+}
+
+.quick-icon {
+  font-size: 27px;
+}
+
+.quick-action h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.quick-action p {
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+.quick-arrow {
+  margin-left: auto;
+  color: var(--primary);
+  font-size: 20px;
+}
+
+/* =========================================================
+   PAGE INTRO
+========================================================= */
+
+.page-intro {
+  margin-bottom: 30px;
+}
+
+.page-intro h2 {
+  font-size: 34px;
+
+  margin-bottom: 8px;
+}
+
+.page-intro > p:last-child {
+  color: var(--text-soft);
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading-card {
+  padding: 50px;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background: var(--card);
+
+  color: var(--text-soft);
+}
+
+/* =========================================================
+   TRAINING
+========================================================= */
+
+.progress-card {
+  padding: 22px;
+
+  border-radius: 17px;
+
+  background:
+    rgba(12, 39, 50, 0.9);
+
+  border: 1px solid var(--border);
+
+  margin-bottom: 22px;
+}
+
+.progress-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+
+  font-size: 13px;
+}
+
+.progress-header strong {
+  color: var(--primary);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 9px;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+.progress-bar div {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #278fa4,
+      #5de0e7
+    );
+
+  transition: width 0.4s ease;
+}
+
+.progress-card p {
+  margin-top: 9px;
+
+  color: #8099a0;
+
+  font-size: 11px;
+}
+
+.training-card {
+  padding: 45px;
+
+  text-align: center;
+
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(47, 166, 183, 0.14),
+      transparent 40%
+    ),
+    var(--card);
+
+  border: 1px solid var(--border);
+}
+
+.training-number {
+  color: var(--primary);
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 15px;
+}
+
+.training-card h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.training-card > p {
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  color: var(--text-soft);
+
+  line-height: 1.6;
+}
+
+.training-timer {
+  font-size: 72px;
+
+  font-weight: 900;
+
+  letter-spacing: 3px;
+
+  margin: 35px 0;
+
+  color: var(--primary);
+
+  text-shadow:
+    0 0 30px rgba(54, 197, 216, 0.25);
+}
+
+.training-actions {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.success-card {
+  margin-top: 20px;
+
+  padding: 20px;
+
+  text-align: center;
+
+  border-radius: 15px;
+
+  background:
+    rgba(54, 197, 216, 0.1);
+
+  border: 1px solid rgba(54, 197, 216, 0.2);
+
+  color: #c9f7fa;
+}
+
+/* =========================================================
+   NUTRITION
+========================================================= */
+
+.nutrition-page {
+  width: 100%;
+}
+
+/* =========================================================
+   NUTRITION INTRO
+========================================================= */
+
+.nutrition-page .page-intro {
+  margin-bottom: 35px;
+}
+
+.nutrition-page .page-intro .eyebrow,
+.nutrition-page .eyebrow {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.nutrition-page .page-intro h2 {
+  color: #f4fbff;
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.nutrition-page .page-intro p {
+  color: var(--text-soft);
+  font-size: 15px;
+}
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.nutrition-page .section-heading {
+  margin-bottom: 22px;
+}
+
+.nutrition-page .section-heading h2 {
+  color: #f4fbff;
+  font-size: 27px;
+  margin: 0 0 7px;
+}
+
+.nutrition-page .section-heading p:not(.eyebrow) {
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+/* =========================================================
+   FOOD SUGGESTION SECTION
+========================================================= */
+
+.nutrition-suggestion-section {
+  margin-bottom: 30px;
+}
+
+/* =========================================================
+   FOUR MEAL COLUMNS
+========================================================= */
+
+.meal-table {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.meal-column {
+  background: linear-gradient(
+    145deg,
+    rgba(16, 45, 58, 0.96),
+    rgba(11, 32, 44, 0.96)
+  );
+
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  padding: 20px;
+
+  min-height: 300px;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.meal-column:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(54, 197, 216, 0.35);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================================
+   MEAL HEADER
+========================================================= */
+
+.meal-column-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding-bottom: 16px;
+  margin-bottom: 15px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.meal-column-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: rgba(54, 197, 216, 0.08);
+
+  font-size: 23px;
+}
+
+.meal-column-header div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.meal-column-header strong {
+  color: #f1f9fc;
+  font-size: 16px;
+}
+
+.meal-column-header small {
+  color: #7896a3;
+  font-size: 11px;
+}
+
+/* =========================================================
+   FOOD SUGGESTIONS
+========================================================= */
+
+.food-suggestion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.food-suggestion {
+  padding: 11px 12px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  border: 1px solid rgba(255, 255, 255, 0.055);
+
+  color: #c5d8e0;
+
+  font-size: 13px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.food-suggestion:hover {
+  background: rgba(54, 197, 216, 0.07);
+
+  border-color: rgba(54, 197, 216, 0.18);
+
+  color: #effaff;
+}
+
+/* =========================================================
+   ACTUAL FOOD LOG
+========================================================= */
+
+.food-entry-card {
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(16, 45, 58, 0.97),
+    rgba(10, 31, 43, 0.97)
+  );
+
+  border: 1px solid var(--border);
+
+  margin-bottom: 25px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================================================
+   ACTUAL FOOD INPUT GRID
+========================================================= */
+
+.actual-food-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 16px;
+
+  margin-bottom: 22px;
+}
+
+/* =========================================================
+   ACTUAL FOOD BOX
+========================================================= */
+
+.actual-food-box {
+  padding: 17px;
+
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid var(--border);
+}
+
+.actual-food-box label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #eaf7fb;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+.actual-food-box textarea {
+  width: 100%;
+
+  min-height: 95px;
+
+  resize: vertical;
+
+  padding: 13px;
+
+  border-radius: 11px;
+
+  border: 1px solid #294856;
+
+  background: rgba(4, 22, 32, 0.75);
+
+  color: #eefaff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.actual-food-box textarea::placeholder {
+  color: #607b87;
+}
+
+.actual-food-box textarea:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(54, 197, 216, 0.08);
+}
+
+/* =========================================================
+   ANALYZE BUTTON
+========================================================= */
+
+.food-entry-card > .btn {
+  min-width: 190px;
+}
+
+/* =========================================================
+   NUTRITION REPORT
+========================================================= */
+
+.nutrition-report {
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(16, 45, 58, 0.97),
+    rgba(10, 31, 43, 0.97)
+  );
+
+  border: 1px solid var(--border);
+
+  margin-bottom: 25px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.18);
+}
+
+.nutrition-report h2 {
+  color: #f4fbff;
+
+  font-size: 27px;
+
+  margin-bottom: 8px;
+}
+
+.nutrition-report > p:not(.eyebrow) {
+  color: var(--text-soft);
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   NUTRITION STATS
+========================================================= */
+
+.nutrition-stats {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 12px;
+
+  margin: 25px 0;
+}
+
+.nutrition-stat {
+  padding: 18px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  border: 1px solid var(--border);
+
+  text-align: center;
+}
+
+.nutrition-stat span {
+  display: block;
+
+  color: #819aa5;
+
+  font-size: 11px;
+
+  margin-bottom: 8px;
+}
+
+.nutrition-stat strong {
+  display: block;
+
+  color: var(--primary);
+
+  font-size: 17px;
+}
+
+/* =========================================================
+   NUTRITION ANALYSIS
+========================================================= */
+
+.benefit-box {
+  padding: 21px;
+
+  border-radius: 15px;
+
+  background: rgba(54, 197, 216, 0.055);
+
+  border: 1px solid rgba(54, 197, 216, 0.15);
+}
+
+.benefit-box h3 {
+  color: #e9f8fc;
+
+  margin-bottom: 9px;
+
+  font-size: 16px;
+}
+
+.benefit-box p {
+  color: var(--text-soft);
+
+  line-height: 1.65;
+
+  font-size: 13px;
+
+  margin: 0;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .meal-table {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nutrition-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .meal-table {
+    grid-template-columns: 1fr;
+  }
+
+  .actual-food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .food-entry-card,
+  .nutrition-report {
+    padding: 20px;
+  }
+
+}
+
+@media (max-width: 450px) {
+
+  .nutrition-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-page .page-intro h2 {
+    font-size: 27px;
+  }
+
+}
+/* =========================================================
+   SPORTS LEARNING
+========================================================= */
+
+.learning-layout {
+  display: grid;
+
+  grid-template-columns: 290px 1fr;
+
+  gap: 20px;
+}
+
+.lesson-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.lesson-button {
+  padding: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  text-align: left;
+
+  border-radius: 12px;
+
+  border: 1px solid var(--border);
+
+  background:
+    rgba(12, 37, 48, 0.85);
+
+  color: white;
+}
+
+.lesson-button > span {
+  color: #718e96;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+.lesson-button strong {
+  display: block;
+
+  font-size: 13px;
+}
+
+.lesson-button small {
+  display: block;
+
+  color: #78949c;
+
+  font-size: 10px;
+
+  margin-top: 4px;
+}
+
+.lesson-button.active {
+  border-color:
+    rgba(54, 197, 216, 0.35);
+
+  background:
+    rgba(54, 197, 216, 0.1);
+}
+
+.lesson-content {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 25px;
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(12, 37, 48, 0.9);
+
+  border: 1px solid var(--border);
+}
+
+.lesson-visual {
+  min-height: 420px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(43, 166, 184, 0.15),
+      transparent 60%
+    );
+}
+
+/* =========================================================
+   SIMPLE 3D PLAYER
+========================================================= */
+
+.player-model {
+  width: 100px;
+  height: 300px;
+
+  position: relative;
+
+  transform:
+    perspective(600px)
+    rotateY(-12deg);
+
+  filter:
+    drop-shadow(
+      0 20px 20px rgba(0, 0, 0, 0.3)
+    );
+}
+
+.player-head {
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #8ed6df,
+      #315f6d
+    );
+
+  position: absolute;
+
+  left: 21px;
+  top: 5px;
+}
+
+.player-body {
+  width: 75px;
+  height: 115px;
+
+  border-radius: 25px 25px 18px 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #4bcbd9,
+      #124252
+    );
+
+  position: absolute;
+
+  left: 12px;
+  top: 63px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.player-number {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.player-leg {
+  width: 23px;
+  height: 120px;
+
+  position: absolute;
+
+  top: 170px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #214c5b,
+      #4d8995
+    );
+}
+
+.player-leg.left {
+  left: 20px;
+
+  transform: rotate(7deg);
+}
+
+.player-leg.right {
+  right: 20px;
+
+  transform: rotate(-7deg);
+}
+
+.player-arm {
+  width: 18px;
+  height: 105px;
+
+  position: absolute;
+
+  top: 70px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2a6070,
+      #5d9da7
+    );
+}
+
+.player-arm.left {
+  left: -5px;
+
+  transform: rotate(25deg);
+}
+
+.player-arm.right {
+  right: -5px;
+
+  transform: rotate(-25deg);
+}
+
+.position-marker {
+  position: absolute;
+
+  padding: 7px 10px;
+
+  border-radius: 8px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  color: var(--primary);
+
+  border: 1px solid rgba(54, 197, 216, 0.25);
+
+  background:
+    rgba(5, 27, 36, 0.8);
+}
+
+.marker-one {
+  top: 90px;
+  right: 25px;
+}
+
+.marker-two {
+  bottom: 90px;
+  left: 20px;
+}
+
+.lesson-info {
+  padding: 15px 5px;
+}
+
+.lesson-info h2 {
+  font-size: 29px;
+
+  margin-bottom: 14px;
+}
+
+.lesson-info > p {
+  color: var(--text-soft);
+
+  line-height: 1.65;
+
+  margin-bottom: 22px;
+}
+
+/* =========================================================
+   INFO CARD
+========================================================= */
+
+.info-card {
+  padding: 20px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border: 1px solid var(--border);
+}
+
+.info-card h3 {
+  margin-bottom: 15px;
+}
+
+.info-card ul {
+  list-style: none;
+}
+
+.info-card li {
+  display: flex;
+
+  gap: 10px;
+
+  color: var(--text-soft);
+
+  font-size: 13px;
+
+  margin-bottom: 11px;
+
+  line-height: 1.4;
+}
+
+.info-card li span {
+  color: var(--primary);
+
+  font-weight: 900;
+}
+
+/* =========================================================
+   FOOD SCANNER
+========================================================= */
+
+.scanner-layout {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 20px;
+}
+
+.scanner-upload-card,
+.scanner-result {
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(12, 38, 49, 0.9);
+
+  border: 1px solid var(--border);
+}
+
+.scanner-icon {
+  width: 70px;
+  height: 70px;
+
+  border-radius: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 32px;
+
+  background:
+    rgba(54, 197, 216, 0.1);
+
+  margin-bottom: 20px;
+}
+
+.scanner-upload-card h2 {
+  margin-bottom: 8px;
+}
+
+.scanner-upload-card > p {
+  color: var(--text-soft);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  margin-bottom: 20px;
+}
+
+.upload-button {
+  display: inline-block;
+
+  padding: 12px 18px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  border: 1px solid var(--border);
+
+  color: white;
+
+  cursor: pointer;
+
+  margin-bottom: 15px;
+}
+
+.food-preview {
+  display: block;
+
+  width: 100%;
+
+  max-height: 300px;
+
+  object-fit: contain;
+
+  border-radius: 14px;
+
+  margin-bottom: 15px;
+
+  background: #04141b;
+}
+
+.scanner-upload-card > .btn {
+  width: 100%;
+}
+
+.scanner-result h2 {
+  margin-bottom: 15px;
+}
+
+/* =========================================================
+   AI COACH
+========================================================= */
+
+.coach-card {
+  min-height: 560px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  border-radius: 20px;
+
+  background:
+    rgba(12, 38, 49, 0.9);
+
+  border: 1px solid var(--border);
+
+  overflow: hidden;
+}
+
+.coach-messages {
+  flex: 1;
+
+  padding: 25px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  overflow-y: auto;
+}
+
+.chat-message {
+  max-width: 75%;
+
+  padding: 13px 16px;
+
+  border-radius: 14px;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+.chat-message.assistant {
+  align-self: flex-start;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  color: #d7e7ea;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+
+  background:
+    rgba(54, 197, 216, 0.16);
+
+  border: 1px solid rgba(54, 197, 216, 0.15);
+}
+
+.coach-input {
+  padding: 15px;
+
+  display: flex;
+
+  gap: 10px;
+
+  border-top: 1px solid var(--border);
+}
+
+.coach-input input {
+  margin: 0;
+  flex: 1;
+}
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+.settings-card {
+  max-width: 850px;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(12, 38, 49, 0.9);
+
+  border: 1px solid var(--border);
+}
+
+.settings-section {
+  padding-bottom: 25px;
+
+  margin-bottom: 25px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.settings-section h3 {
+  margin-bottom: 20px;
+}
+
+.settings-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 15px;
+}
+
+.settings-card select {
+  margin-bottom: 18px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .hero {
+    gap: 30px;
+  }
+
+  .hero-visual {
+    width: 430px;
+    height: 430px;
+  }
+
+  .ring-one {
+    width: 360px;
+    height: 360px;
+  }
+
+  .ring-two {
+    width: 420px;
+  }
+
+  .ai-core {
+    width: 210px;
+    height: 210px;
+  }
+
+  .feature-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .meal-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .dashboard-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+
+  .topbar {
+    padding: 0 5%;
+  }
+
+  .hero {
+    width: 90%;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 60px 0;
+
+    min-height: auto;
+  }
+
+  .hero-content {
+    max-width: 700px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    width: 430px;
+    height: 430px;
+  }
+
+  .learning-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-content {
+    grid-template-columns: 1fr;
+  }
+
+  .scanner-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .topbar {
+    height: 70px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .top-actions .btn {
+    padding: 9px 13px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding-top: 45px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    letter-spacing: -2px;
+  }
+
+  .hero-text {
+    font-size: 14px;
+  }
+
+  .hero-visual {
+    width: 350px;
+    height: 350px;
+  }
+
+  .ai-core {
+    width: 170px;
+    height: 170px;
+  }
+
+  .ai-core-inner strong {
+    font-size: 17px;
+  }
+
+  .ai-core-inner span {
+    font-size: 30px;
+  }
+
+  .ring-one {
+    width: 300px;
+    height: 300px;
+  }
+
+  .ring-two {
+    width: 340px;
+    height: 160px;
+  }
+
+  .visual-label {
+    font-size: 9px;
+    padding: 6px 9px;
+  }
+
+  .label-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .training-label {
+    top: 20px;
+    left: 0;
+  }
+
+  .nutrition-label {
+    top: 80px;
+    right: -5px;
+  }
+
+  .learning-label {
+    right: -10px;
+    bottom: 90px;
+  }
+
+  .scanner-label {
+    bottom: 20px;
+    left: 5px;
+  }
+
+  .coach-label {
+    left: -10px;
+    bottom: 130px;
+  }
+
+  .sport-ball {
+    width: 45px;
+    height: 45px;
+    font-size: 19px;
+  }
+
+  .ball-one {
+    top: 5px;
+    right: 60px;
+  }
+
+  .ball-two {
+    bottom: 5px;
+    right: 40px;
+  }
+
+  .ball-three {
+    top: 160px;
+    left: -5px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card {
+    padding: 25px;
+  }
+
+  .choice-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .dashboard-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .welcome-banner {
+    padding: 25px;
+  }
+
+  .welcome-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 30px;
+  }
+
+  .dashboard-header {
+    padding: 18px 5%;
+  }
+
+  .dashboard-header h1 {
+    font-size: 22px;
+  }
+
+  .header-profile {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .dashboard-layout {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+
+    left: -280px;
+
+    top: 0;
+
+    z-index: 100;
+
+    width: 260px;
+
+    transition: left 0.25s ease;
+  }
+
+  .sidebar.mobile-open {
+    left: 0;
+  }
+
+  .mobile-menu-button {
+    display: block;
+
+    border: 1px solid var(--border);
+
+    background:
+      rgba(255, 255, 255, 0.05);
+
+    color: white;
+
+    border-radius: 8px;
+
+    padding: 8px 11px;
+
+    margin-right: 12px;
+  }
+
+  .dashboard-header {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .dashboard-content {
+    width: 92%;
+    padding-top: 25px;
+  }
+
+  .meal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .training-card {
+    padding: 28px 18px;
+  }
+
+  .training-timer {
+    font-size: 55px;
+  }
+
+  .training-actions {
+    flex-direction: column;
+  }
+
+  .training-actions .btn {
+    width: 100%;
+  }
+
+  .lesson-content {
+    padding: 15px;
+  }
+
+  .coach-input {
+    flex-direction: column;
+  }
+
+  .coach-input .btn {
+    width: 100%;
+  }
+}
+/* =========================================================
+   TRAINING PAGE — DARK PROFESSIONAL UI
+========================================================= */
+
+.training-page {
+  width: 100%;
+  color: #eaf6ff;
+}
+
+/* =========================================================
+   PAGE INTRO
+========================================================= */
+
+.training-page .page-intro {
+  margin-bottom: 22px;
+}
+
+.training-page .page-intro .eyebrow {
+  color: #53d7f2;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.training-page .page-intro h2 {
+  color: #f5fbff;
+  font-size: 32px;
+  margin: 0 0 7px;
+}
+
+.training-page .page-intro p {
+  color: #8da8b8;
+}
+
+/* =========================================================
+   PROGRESS CARD
+========================================================= */
+
+.progress-card {
+  background: linear-gradient(
+    135deg,
+    #10283a,
+    #0d2031
+  );
+
+  border: 1px solid #21455b;
+  border-radius: 20px;
+
+  padding: 20px 24px;
+  margin-top: 20px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.progress-header span {
+  color: #dcecf5;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.progress-header strong {
+  color: #53d7f2;
+  font-size: 17px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 9px;
+
+  background: #1b3446;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar > div {
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #2bb8d5,
+    #4fd9ef
+  );
+
+  border-radius: inherit;
+
+  box-shadow:
+    0 0 12px rgba(67, 211, 239, 0.35);
+
+  transition: width 0.35s ease;
+}
+
+.progress-card > p {
+  margin: 10px 0 0;
+
+  color: #7894a5;
+  font-size: 12px;
+}
+
+/* =========================================================
+   TWO COLUMN TRAINING AREA
+========================================================= */
+
+.training-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(270px, 0.75fr)
+    minmax(500px, 1.6fr);
+
+  gap: 26px;
+
+  align-items: stretch;
+
+  margin-top: 26px;
+}
+
+/* =========================================================
+   LEFT EXERCISE LIST
+========================================================= */
+
+.exercise-list-card {
+  background: linear-gradient(
+    145deg,
+    #102536,
+    #0c1d2c
+  );
+
+  border: 1px solid #1f4054;
+  border-radius: 20px;
+
+  padding: 20px;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.exercise-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+.exercise-list-header h3 {
+  margin: 0;
+
+  color: #f0f8fc;
+  font-size: 19px;
+}
+
+.exercise-list-header span {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #183b52;
+  color: #65d9f1;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   EXERCISE ITEMS
+========================================================= */
+
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.exercise-list-item {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 13px;
+
+  border-radius: 15px;
+
+  border: 1px solid #1e394b;
+
+  background: #10283a;
+
+  color: #e8f5fa;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.exercise-list-item:hover {
+  transform: translateY(-1px);
+
+  border-color: #2c6680;
+
+  background: #123047;
+}
+
+/* SELECTED */
+
+.exercise-list-item.selected {
+  background: linear-gradient(
+    135deg,
+    #123b51,
+    #102d40
+  );
+
+  border-color: #42d4f0;
+
+  box-shadow:
+    0 0 0 1px rgba(66, 212, 240, 0.12),
+    0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+/* COMPLETED */
+
+.exercise-list-item.completed {
+  background: linear-gradient(
+    135deg,
+    #123b32,
+    #102d29
+  );
+
+  border-color: #26775d;
+}
+
+/* =========================================================
+   NUMBER CIRCLE
+========================================================= */
+
+.exercise-list-number {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #1b3548;
+  color: #8caebe;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.exercise-list-item.selected
+.exercise-list-number {
+  background: #2489b0;
+  color: #ffffff;
+
+  box-shadow:
+    0 0 15px rgba(44, 190, 225, 0.25);
+}
+
+.exercise-list-item.completed
+.exercise-list-number {
+  background: #43a878;
+  color: #ffffff;
+}
+
+/* =========================================================
+   EXERCISE INFO
+========================================================= */
+
+.exercise-list-info {
+  min-width: 0;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.exercise-list-info strong {
+  color: #edf8fc;
+
+  font-size: 14px;
+}
+
+.exercise-list-info span {
+  color: #7794a5;
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   RIGHT TRAINING CARD
+========================================================= */
+
+.training-card {
+  min-height: 590px;
+
+  background: radial-gradient(
+      circle at 80% 20%,
+      rgba(31, 100, 130, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #102637,
+      #0a1b2a
+    );
+
+  border: 1px solid #21455a;
+  border-radius: 22px;
+
+  padding: 30px;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle background glow */
+
+.training-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: -100px;
+  bottom: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(22, 111, 145, 0.08);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   EXERCISE NUMBER
+========================================================= */
+
+.training-number {
+  color: #7fa5b7;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.13em;
+
+  margin-bottom: 10px;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.training-title-row {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 24px;
+}
+
+.training-card h2 {
+  margin: 0;
+
+  color: #f4fbff;
+
+  font-size: 31px;
+  line-height: 1.2;
+}
+
+/* =========================================================
+   DONE BADGE
+========================================================= */
+
+.done-badge {
+  display: inline-flex;
+
+  margin-top: 10px;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  background: rgba(54, 164, 113, 0.15);
+
+  border: 1px solid #347f61;
+
+  color: #64d19d;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   HOW TO DO
+========================================================= */
+
+.how-to-card {
+  background: rgba(12, 31, 45, 0.85);
+
+  border: 1px solid #1f4256;
+
+  border-radius: 17px;
+
+  padding: 21px;
+
+  margin-bottom: 30px;
+
+  position: relative;
+}
+
+.how-to-card h3 {
+  margin: 0 0 15px;
+
+  color: #52d8f3;
+
+  font-size: 17px;
+}
+
+.how-to-card ol {
+  margin: 0;
+
+  padding-left: 24px;
+}
+
+.how-to-card li {
+  margin-bottom: 10px;
+
+  color: #a5bcc8;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+.how-to-card li:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   TIMER SECTION
+========================================================= */
+
+.timer-section {
+  text-align: center;
+
+  padding: 5px 0 20px;
+}
+
+.timer-section p {
+  margin: 0 0 12px;
+
+  color: #7998a9;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+.training-timer {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 190px;
+  height: 150px;
+
+  margin: 0 auto 24px;
+
+  border-radius: 50%;
+
+  border: 3px solid #258bb0;
+
+  background: radial-gradient(
+    circle,
+    #102f43,
+    #0b2030 70%
+  );
+
+  color: #f3fbff;
+
+  font-size: 57px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.04em;
+
+  font-variant-numeric: tabular-nums;
+
+  box-shadow:
+    0 0 25px rgba(42, 185, 222, 0.12),
+    inset 0 0 25px rgba(33, 128, 160, 0.1);
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.training-actions {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 8px;
+}
+
+.training-actions .btn {
+  min-width: 130px;
+
+  border-radius: 12px;
+
+  font-weight: 700;
+}
+
+/* START */
+
+.training-actions .btn.primary {
+  background: linear-gradient(
+    135deg,
+    #20b8d5,
+    #2d8db4
+  );
+
+  border: 1px solid #37c8e3;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 7px 20px rgba(28, 171, 204, 0.18);
+}
+
+/* SECONDARY / STOP */
+
+.training-actions .btn.secondary {
+  background: #132d40;
+
+  border: 1px solid #294b60;
+
+  color: #9db8c7;
+}
+
+.training-actions .btn.secondary:hover {
+  background: #18384c;
+
+  border-color: #3d6378;
+}
+
+/* =========================================================
+   DONE MESSAGE
+========================================================= */
+
+.exercise-done-message {
+  margin-top: 22px;
+
+  padding: 15px 18px;
+
+  border-radius: 14px;
+
+  background: rgba(43, 133, 91, 0.12);
+
+  border: 1px solid #2e7257;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  text-align: center;
+}
+
+.exercise-done-message strong {
+  color: #61d39b;
+
+  font-size: 16px;
+}
+
+.exercise-done-message span {
+  color: #8daea0;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.success-card {
+  margin-top: 22px;
+
+  padding: 20px;
+
+  border-radius: 16px;
+
+  background: rgba(43, 133, 91, 0.13);
+
+  border: 1px solid #34785c;
+
+  color: #66d59f;
+
+  text-align: center;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading-card {
+  background: #102536;
+
+  border: 1px solid #21455a;
+
+  color: #9eb8c5;
+
+  border-radius: 18px;
+
+  padding: 30px;
+
+  text-align: center;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .training-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .training-card {
+    min-height: auto;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .training-card {
+    padding: 20px;
+  }
+
+  .training-card h2 {
+    font-size: 24px;
+  }
+
+  .training-timer {
+    width: 165px;
+    height: 135px;
+    font-size: 45px;
+  }
+
+  .training-actions {
+    flex-direction: column;
+  }
+
+  .training-actions .btn {
+    width: 100%;
+  }
+
+}

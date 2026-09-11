@@ -1,0 +1,28 @@
+# Node
+node_modules/
+dist/
+
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+
+# Environment variables - NEVER upload API keys
+.env
+backend/.env
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
